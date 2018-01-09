@@ -1,10 +1,8 @@
-module.exports = {
-  googleClientID:
-    '406398385311-1mqchd1b8390b84didan1dhcscu2betc.apps.googleusercontent.com',
-  googleClientSecret: 'Jw7xxP4CERUfkXUCxFX8y92t',
-  mongoURI: 'mongodb://peterpanda:password@ds245357.mlab.com:45357/emailsenderandsurveycollector',
-  cookieKey:'asdfasdfasdfasdfsdf'
-};
-
-// client id: 406398385311-1mqchd1b8390b84didan1dhcscu2betc.apps.googleusercontent.com
-// client secret: Jw7xxP4CERUfkXUCxFX8y92t
+// keys.js figure out what credential to return
+if (process.env.NODE_ENV === 'production') {
+  // we are in productoin - return the prod set of keys
+  module.exports = require('./prod');
+} else {
+  // we are in development - return the dev keys!!!
+  module.exports = require('./dev');
+}
